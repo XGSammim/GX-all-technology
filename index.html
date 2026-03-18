@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>GX Technology | Premium Edition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>GX Technology | Ultra Premium Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         * { 
             margin: 0; padding: 0; box-sizing: border-box; 
@@ -13,122 +13,127 @@
             user-select: none;
         }
 
-        /* প্রিমিয়াম ডার্ক ব্লু ব্যাকগ্রাউন্ড মিশ্রণ */
+        /* প্রিমিয়াম গাঢ় গ্রেডিয়েন্ট ব্যাকগ্রাউন্ড */
         body {
             height: 100vh;
             width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
-            color: #e2e8f0;
+            background: linear-gradient(145deg, #01040a 0%, #0d1117 100%);
+            color: #fff;
             overflow: hidden;
             position: fixed;
         }
 
-        /* হালকা নীল গ্লো ইফেক্ট (Animated Orbs) */
+        /* ব্যাকগ্রাউন্ড নিওন গ্লো (Animated Orbs) */
         .orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
+            filter: blur(100px);
             z-index: 0;
-            opacity: 0.2;
-            animation: move 20s infinite alternate;
+            opacity: 0.15;
+            animation: move 25s infinite alternate;
         }
-        .orb-1 { width: 300px; height: 300px; background: #3b82f6; top: 10%; left: 10%; }
-        .orb-2 { width: 400px; height: 400px; background: #1e40af; bottom: 10%; right: 10%; }
+        .orb-1 { width: 400px; height: 400px; background: #238636; top: -10%; left: -10%; } /* হালকা গ্রিন */
+        .orb-2 { width: 500px; height: 500px; background: #1f6feb; bottom: -15%; right: -10%; } /* হালকা ব্লু */
 
         @keyframes move {
-            from { transform: translate(0, 0); }
-            to { transform: translate(50px, 50px); }
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(60px, 60px) scale(1.1); }
         }
 
         .container {
             position: relative;
             width: 90%;
-            max-width: 380px;
+            max-width: 420px;
             z-index: 10;
         }
 
-        /* গ্লাস কার্ড ডিজাইন */
-        .glass-card {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1.5px solid rgba(59, 130, 246, 0.5);
-            border-radius: 30px;
-            padding: 40px 25px;
+        /* প্রিমিয়াম কাঁচের মতো কার্ড */
+        .premium-card {
+            background: rgba(22, 27, 34, 0.7);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px 30px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
         }
 
         .brand {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 900;
-            letter-spacing: 5px;
-            margin-bottom: 35px;
-            background: linear-gradient(135deg, #fff 0%, #3b82f6 100%);
+            letter-spacing: 6px;
+            margin-bottom: 30px;
+            background: linear-gradient(to bottom, #fff 0%, #aaa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
         }
 
-        /* ড্রপডাউন ট্রিগার */
-        .select-box {
-            position: relative;
-            width: 100%;
-            margin-bottom: 30px;
-        }
-
-        .select-btn {
-            width: 100%;
-            padding: 16px 20px;
-            background: rgba(2, 6, 23, 0.7);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 15px;
-            color: #fff;
+        .instruction {
             font-size: 15px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.3s ease;
+            font-weight: 600;
+            margin-bottom: 25px;
+            opacity: 0.7;
+            /* সব লেখা সাদা */
+            color: #fff;
         }
 
-        .select-btn:hover {
-            border-color: #3b82f6;
-            background: rgba(30, 64, 175, 0.2);
-        }
-
-        /* অপশন লিস্ট */
-        .options-container {
-            position: absolute;
-            top: 110%;
-            left: 0;
+        /* স্ক্রলিং লিঙ্ক লিস্টের কন্টেইনার */
+        .links-container {
             width: 100%;
-            background: #0f172a;
-            border: 1.5px solid #3b82f6;
-            border-radius: 15px;
-            max-height: 220px;
+            height: 250px;
             overflow-y: auto;
-            display: none;
-            z-index: 100;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            background: rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            text-align: left;
+            padding: 5px;
         }
 
-        .option {
-            padding: 14px 20px;
+        /* স্ক্রলবার হাইড করার জন্য (ঐচ্ছিক, তবে প্রিমিয়াম লাগে) */
+        .links-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .links-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .links-container::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        /* প্রতিটি লিঙ্ক আইটেম */
+        .link-item {
+            padding: 16px 20px;
             font-size: 15px;
             font-weight: 700;
             cursor: pointer;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
-            transition: 0.2s;
-            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.2s ease;
+            position: relative;
+            /* সব লেখা সাদা */
+            color: #fff;
         }
 
-        .option:hover {
-            background: rgba(59, 130, 246, 0.3);
+        .link-item:last-child {
+            border: none;
+        }
+
+        /* হোভার এবং সিলেকশন ইফেক্ট */
+        .link-item:hover {
+            background: rgba(255, 255, 255, 0.04);
             padding-left: 25px;
+        }
+
+        .link-item.selected {
+            background: rgba(31, 111, 235, 0.1);
+            border-left: 3px solid #1f6feb;
+            color: #fff; /* নিশ্চিত করা হল যে সিলেক্টেড লেখাও সাদাই থাকবে */
         }
 
         /* লঞ্চ বাটন */
@@ -136,24 +141,27 @@
             width: 100%;
             padding: 18px;
             border: none;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            border-radius: 14px;
+            background: linear-gradient(135deg, #1f6feb 0%, #154694 100%);
+            /* সব লেখা সাদা */
             color: #fff;
             font-weight: 800;
             font-size: 16px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 20px rgba(31, 111, 235, 0.3);
         }
 
         .launch-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(37, 99, 235, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(31, 111, 235, 0.5);
         }
-
-        .show { display: block !important; }
+        
+        .launch-btn:active {
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 <body>
@@ -162,17 +170,13 @@
     <div class="orb orb-2"></div>
 
     <div class="container">
-        <div class="glass-card">
+        <div class="premium-card">
             <div class="brand">GX TECH</div>
             
-            <div class="select-box">
-                <div class="select-btn" onclick="toggleDropdown()">
-                    <span id="selectedText">টাইটেল সিলেক্ট করুন</span>
-                    <span style="font-size: 12px;">▼</span>
-                </div>
-                <div class="options-container" id="optionsList">
-                    <div class="option" style="color: #fff;">লোড হচ্ছে...</div>
-                </div>
+            <p class="instruction">দয়া করে একটি লিঙ্ক বেছে নিন</p>
+
+            <div class="links-container" id="optionsList">
+                <div class="link-item" style="opacity: 0.5; color: #fff;">লোড হচ্ছে...</div>
             </div>
 
             <button class="launch-btn" onclick="launchNow()">Launch Now</button>
@@ -190,44 +194,44 @@
                 const list = document.getElementById('optionsList');
                 list.innerHTML = "";
                 
+                if (data.length === 0) {
+                    list.innerHTML = '<div class="link-item" style="color: #fff;">কোনো লিঙ্ক পাওয়া যায়নি।</div>';
+                    return;
+                }
+
                 data.forEach((item, index) => {
                     let div = document.createElement('div');
-                    div.className = "option";
+                    div.className = "link-item";
                     div.textContent = item.title;
                     
-                    // হলুদ এবং সাদা কালারের মিশ্রণ
-                    // জোড় সংখ্যা (0, 2, 4) হলে হলুদ, বিজোড় (1, 3, 5) হলে সাদা
-                    div.style.color = (index % 2 === 0) ? "#FFD700" : "#FFFFFF";
-                    
+                    // ক্লিক ইভেন্ট - লিঙ্ক সিলেক্ট করার জন্য
                     div.onclick = function() {
-                        document.getElementById('selectedText').innerText = item.title;
+                        // আগের সিলেক্টেড আইটেম থেকে ক্লাস রিমুভ করা
+                        const currentSelected = document.querySelector('.link-item.selected');
+                        if (currentSelected) {
+                            currentSelected.classList.remove('selected');
+                        }
+                        
+                        // নতুন আইটেম সিলেক্ট করা
+                        div.classList.add('selected');
                         currentUrl = item.url;
-                        toggleDropdown();
                     };
                     list.appendChild(div);
                 });
             } catch(e) { 
-                document.getElementById('optionsList').innerHTML = '<div class="option" style="color: #ff4444;">ডাটা পাওয়া যায়নি</div>';
+                document.getElementById('optionsList').innerHTML = '<div class="link-item" style="color: #ff4444;">ডেটা লোড করতে ব্যর্থ হয়েছে।</div>';
             }
-        }
-
-        function toggleDropdown() {
-            const list = document.getElementById('optionsList');
-            if(!list.classList.contains('show')) fetchLinks();
-            list.classList.toggle('show');
         }
 
         function launchNow() {
-            if(currentUrl) window.location.href = currentUrl;
-            else alert("দয়া করে একটি অপশন বেছে নিন!");
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.closest('.select-box')) {
-                document.getElementById('optionsList').classList.remove('show');
+            if(currentUrl) {
+                window.location.href = currentUrl;
+            } else {
+                alert("দয়া করে একটি লিঙ্ক সিলেক্ট করুন!");
             }
         }
         
+        // পেজ লোড হলেই ডেটা ফেচ করা
         fetchLinks();
     </script>
 </body>
