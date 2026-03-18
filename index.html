@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>GX Technology | Animated Smooth UI</title>
+    <title>GX Technology | Deep Blue Edition</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * { 
@@ -13,44 +13,37 @@
             user-select: none;
         }
 
-        /* অ্যানিমেটেড গ্রেডিয়েন্ট ব্যাকগ্রাউন্ড */
+        /* ডার্ক এবং নীল কালারের গভীর মিশ্রণ */
         body {
             height: 100vh;
             width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
-            /* হালকা নীল, ভায়োলেট এবং ডার্ক স্লেটের মিশ্রণ */
-            background: linear-gradient(125deg, #0f172a, #1e1b4b, #1e293b, #020617);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: #fff;
+            background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%);
+            background-size: 300% 300%;
+            animation: gradientMove 12s ease infinite;
+            color: #e2e8f0;
             overflow: hidden;
             position: fixed;
         }
 
-        @keyframes gradientBG {
+        @keyframes gradientMove {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* ব্যাকগ্রাউন্ডে ভাসমান রঙিন বল (Floating Orbs) */
+        /* ব্যাকগ্রাউন্ড ওর্বস - আরও গাঢ় নীল */
         .orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
+            filter: blur(100px);
             z-index: 0;
-            animation: float 10s infinite alternate;
-            opacity: 0.6;
+            opacity: 0.4;
         }
-        .orb-1 { width: 350px; height: 350px; background: rgba(0, 255, 136, 0.2); top: -10%; left: -5%; }
-        .orb-2 { width: 450px; height: 450px; background: rgba(59, 130, 246, 0.15); bottom: -10%; right: -5%; animation-delay: 2s; }
-
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 80px); }
-        }
+        .orb-1 { width: 400px; height: 400px; background: #1e40af; top: -15%; left: -10%; }
+        .orb-2 { width: 500px; height: 500px; background: #312e81; bottom: -15%; right: -10%; }
 
         .neon-wrapper {
             position: relative;
@@ -59,76 +52,78 @@
             z-index: 10;
         }
 
+        /* বর্ডারে সাদার বদলে নীলচে গ্লো */
         .card-border {
-            padding: 2px;
+            padding: 1.5px;
             border-radius: 35px;
-            background: linear-gradient(135deg, rgba(0, 255, 136, 0.5), rgba(59, 130, 246, 0.5));
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.15);
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            box-shadow: 0 0 40px rgba(30, 64, 175, 0.3);
         }
 
-        /* গ্লাসমরফিজম কার্ড - আরও স্বচ্ছ লুক */
+        /* কার্ডের ভেতরটা এখন অনেক ডার্ক ব্লু */
         .card {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            padding: 50px 30px;
-            border-radius: 33px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            padding: 55px 35px;
+            border-radius: 33.5px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.1);
         }
 
         .brand {
-            font-size: 30px; font-weight: 900; letter-spacing: 3px; margin-bottom: 40px;
-            background: linear-gradient(to bottom, #fff, #00ff88);
+            font-size: 30px; font-weight: 900; letter-spacing: 4px; margin-bottom: 45px;
+            background: linear-gradient(to bottom, #93c5fd, #3b82f6);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             text-transform: uppercase;
         }
 
-        .custom-select { position: relative; width: 100%; margin-bottom: 30px; text-align: left; }
+        .custom-select { position: relative; width: 100%; margin-bottom: 35px; text-align: left; }
         
         .select-trigger {
-            width: 100%; padding: 18px; background: rgba(0, 0, 0, 0.3); 
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px; color: #fff; font-size: 16px; cursor: pointer;
+            width: 100%; padding: 18px; 
+            background: rgba(2, 6, 23, 0.6); 
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px; color: #cbd5e1; font-size: 16px; cursor: pointer;
             display: flex; justify-content: space-between; align-items: center;
             transition: 0.3s;
         }
-        .select-trigger:hover { border-color: #00ff88; background: rgba(0, 0, 0, 0.5); }
+        .select-trigger:hover { border-color: #3b82f6; background: rgba(30, 64, 175, 0.2); }
 
         .options-list {
             position: absolute; 
             top: 110%; 
             left: 0; 
             width: 100%;
-            background: rgba(30, 41, 59, 0.95); 
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 255, 136, 0.3);
+            background: #0f172a; 
+            border: 1px solid rgba(59, 130, 246, 0.3);
             border-radius: 22px; 
             overflow-y: auto; 
             max-height: 250px; 
             display: none; 
             z-index: 999; 
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
         }
 
         .option-item {
-            padding: 16px 20px; color: #ddd; cursor: pointer; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 16px 20px; color: #94a3b8; cursor: pointer; 
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
             transition: 0.2s;
         }
         .option-item:last-child { border: none; }
-        .option-item:hover { background: #00ff88; color: #000; font-weight: 700; }
+        .option-item:hover { background: #1e40af; color: #fff; font-weight: 700; }
 
+        /* বাটন এখন নীল গ্রেডিয়েন্টে */
         .btn-launch {
-            width: 100%; padding: 20px; border: none; border-radius: 20px;
-            background: linear-gradient(45deg, #00ff88, #3b82f6);
-            color: #000; font-weight: 800; text-transform: uppercase;
+            width: 100%; padding: 20px; border: none; border-radius: 22px;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: #fff; font-weight: 800; text-transform: uppercase;
             letter-spacing: 2px; cursor: pointer; transition: 0.4s;
-            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
         }
         .btn-launch:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.4);
-            filter: brightness(1.1);
+            transform: translateY(-2px); 
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.5);
         }
 
         .show { display: block !important; }
@@ -182,8 +177,7 @@
                     list.appendChild(div);
                 });
             } catch(e) { 
-                console.log("Load Error"); 
-                document.getElementById('optionsList').innerHTML = '<div class="option-item">এরর! পুনরায় চেষ্টা করুন</div>';
+                document.getElementById('optionsList').innerHTML = '<div class="option-item">ডাটা লোড করতে ব্যর্থ</div>';
             }
         }
 
