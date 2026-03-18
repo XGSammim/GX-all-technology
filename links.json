@@ -1,38 +1,8 @@
 [
   {
-    "title": "Translate",
-    "url": "https://guui68.github.io/GX-translate/"
-  },
-  {
-    "title": "My Admin",
-    "url": "https://guui68.github.io/Photo-to-text/admin.html"
-  },
-  {
-    "title": "Rent receipt",
-    "url": "https://guui68.github.io/Rent/"
-  },
-  {
-    "title": "Hasibul's WiFi ",
-    "url": "https://guui68.github.io/XG-sammim/"
-  },
-  {
-    "title": "Tik Tok video download",
-    "url": "https://guui68.github.io/GX-sammim/"
-  },
-  {
-    "title": "Number sent",
-    "url": "https://sammim1.github.io/Sammim3/"
-  },
-  {
-    "title": "Prayer and iftar time",
-    "url": "https://sammim1.github.io/Tempkey.json/"
-  },
-  {
-    "title": "Photo and file sent",
-    "url": "https://sammim1.github.io/Prayer-times-/"
-  },
-  {
-    "title": "GX download store",
-    "url": "https://guui68.github.io/Downloading-apps/"
+    "title": "GX tik tok download",
+    "link": "https://xgsammim.github.io/Tiktok-video-download/",
+    "cat": "web",
+    "color": "#3b82f6"
   }
 ]
