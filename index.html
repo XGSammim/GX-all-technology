@@ -106,9 +106,10 @@
         }
 
         .option-item {
-            padding: 16px 20px; color: #94a3b8; cursor: pointer; 
+            padding: 16px 20px; color: #e2e8f0; cursor: pointer; /* bright text color */
             border-bottom: 1px solid rgba(59, 130, 246, 0.1);
             transition: 0.2s;
+            font-weight: 600; /* making it a bit bolder */
         }
         .option-item:last-child { border: none; }
         .option-item:hover { background: #1e40af; color: #fff; font-weight: 700; }
@@ -158,6 +159,16 @@
         const jsonUrl = 'https://raw.githubusercontent.com/XGSammim/GX-all-technology/main/links.json';
         let currentUrl = "";
 
+        // Function to generate a random bright color
+        function getRandomBrightColor() {
+            const letters = '89ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * letters.length)];
+            }
+            return color;
+        }
+
         async function fetchLinks() {
             try {
                 const res = await fetch(`${jsonUrl}?nocache=${Date.now()}`);
@@ -169,6 +180,7 @@
                     let div = document.createElement('div');
                     div.className = "option-item";
                     div.textContent = item.title;
+                    div.style.color = getRandomBrightColor(); // Assigning a random bright color
                     div.onclick = function() {
                         document.getElementById('selectedText').innerText = item.title;
                         currentUrl = item.url;
