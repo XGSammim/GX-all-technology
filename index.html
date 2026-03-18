@@ -3,182 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GX Technology | Single Color Glow</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>GX Technology | Secure Access</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        
-        /* ডার্ক ভায়োলেট-ব্লু ব্যাকগ্রাউন্ড */
-        body { 
-            height: 100vh; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            background: #12122b; 
-            color: #fff; 
-            overflow: hidden; 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
 
-        /* এক কালার জ্বলমলে বর্ডার কন্টেইনার */
-        .neon-wrapper {
-            position: relative;
-            width: 90%;
-            max-width: 380px;
-            padding: 5px; 
-            border-radius: 40px;
+        body {
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #000;
-            overflow: visible;
+            background: #050510;
+            color: #fff;
+            overflow: hidden;
+            position: relative;
         }
 
-        /* এখানে আপনি আপনার পছন্দমতো কালার পরিবর্তন করতে পারবেন (এখন নিওন গ্রিন দেওয়া) */
+        /* ব্যাকগ্রাউন্ডে ভাসমান রঙিন বল (Floating Orbs) */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            animation: float 10s infinite alternate;
+        }
+        .orb-1 { width: 300px; height: 300px; background: rgba(0, 255, 136, 0.2); top: -10%; left: -5%; }
+        .orb-2 { width: 400px; height: 400px; background: rgba(59, 130, 246, 0.15); bottom: -10%; right: -5%; animation-delay: 2s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 50px); }
+        }
+
+        /* নিয়ন গ্লো র‍্যাপার */
+        .neon-wrapper {
+            position: relative;
+            width: 90%;
+            max-width: 400px;
+            padding: 2px; 
+            border-radius: 35px;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 10;
+        }
+
+        /* এনিমেটেড নিয়ন বর্ডার */
         .neon-wrapper::before {
             content: "";
             position: absolute;
-            inset: -2px;
-            background: conic-gradient(transparent, transparent, transparent, #00ff88); /* এক কালার */
-            animation: rotateGlow 2.5s linear infinite;
-            border-radius: 42px;
+            inset: -1px;
+            background: conic-gradient(from 0deg, transparent, #00ff88, transparent, #3b82f6, transparent);
+            animation: rotate 4s linear infinite;
+            border-radius: 36px;
             z-index: -1;
-            filter: blur(10px) brightness(1.8); /* অনেক বেশি জ্বলমলে ইফেক্ট */
+            filter: blur(8px);
         }
 
-        @keyframes rotateGlow {
-            0% { transform: rotate(0deg); }
+        @keyframes rotate {
             100% { transform: rotate(360deg); }
         }
 
-        /* মেইন কার্ড */
+        /* গ্লাসমরফিজম কার্ড */
         .card {
-            background: #0d0d0f; 
-            padding: 50px 25px;
-            width: 100%;
-            border-radius: 36px;
+            background: rgba(13, 13, 18, 0.8);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 50px 30px;
+            border-radius: 34px;
             text-align: center;
-            position: relative;
-            z-index: 2;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
 
         .brand {
-            font-size: 32px; font-weight: 900; letter-spacing: 2px; margin-bottom: 40px;
-            background: linear-gradient(180deg, #fff, #00ff88);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            background: linear-gradient(to bottom, #fff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-transform: uppercase;
         }
 
-        /* কাস্টম ড্রপডাউন */
-        .custom-select { position: relative; width: 100%; margin-bottom: 25px; text-align: left; }
-        
-        .select-trigger {
-            width: 100%; padding: 18px; background: #000; border: 1px solid #222;
-            border-radius: 18px; color: #fff; font-size: 16px; cursor: pointer;
-            display: flex; justify-content: space-between; align-items: center;
+        .subtitle {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 40px;
         }
 
-        /* নামের লিস্ট পপ-আপ (আগের ডিজাইন) */
-        .options-list {
-            position: absolute; 
-            top: 105%; 
-            left: 0; 
+        /* ইনপুট স্টাইল */
+        .input-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .pass-input {
             width: 100%;
-            background: #111; 
-            border: 1px solid rgba(0, 255, 136, 0.4);
-            border-radius: 20px; 
-            overflow-y: auto; 
-            max-height: 280px; 
-            display: none; 
-            z-index: 999; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
-            animation: fadeIn 0.3s ease;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            letter-spacing: 5px;
+            outline: none;
+            transition: 0.3s;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
+        .pass-input:focus {
+            border-color: #00ff88;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
         }
 
-        .option-item {
-            padding: 16px 20px; color: #eee; cursor: pointer; border-bottom: 1px solid #1a1a1a;
-            transition: 0.2s; font-size: 15px;
+        /* বাটন স্টাইল */
+        .btn-unlock {
+            width: 100%;
+            padding: 20px;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #00ff88, #3b82f6);
+            color: #000;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.4s;
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2);
         }
-        .option-item:last-child { border: none; }
-        .option-item:hover { background: #00ff88; color: #000; font-weight: 700; }
 
-        .btn-launch {
-            width: 100%; padding: 18px; border: none; border-radius: 18px;
-            background: #00ff88; color: #000; font-weight: 900; text-transform: uppercase;
-            letter-spacing: 2px; cursor: pointer; transition: 0.3s;
+        .btn-unlock:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.4);
+            filter: brightness(1.1);
         }
-        .btn-launch:hover { background: #fff; transform: translateY(-2px); }
 
-        .show { display: block !important; }
+        .error-msg {
+            color: #ff4d4d;
+            font-size: 13px;
+            margin-top: 15px;
+            display: none;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
 
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
     <div class="neon-wrapper">
         <div class="card">
             <div class="brand">GX TECHNOLOGY</div>
+            <div class="subtitle">Secure Verification</div>
             
-            <div class="custom-select">
-                <div class="select-trigger" onclick="toggleDropdown()">
-                    <span id="selectedText">টাইটেল সিলেক্ট করুন</span>
-                    <span>▼</span>
-                </div>
-                <div class="options-list" id="optionsList">
-                    <div class="option-item">লোড হচ্ছে...</div>
-                </div>
+            <div class="input-group">
+                <input type="password" id="passInput" class="pass-input" placeholder="••••••">
+                <div id="errorMsg" class="error-msg">ভুল পাসওয়ার্ড, আবার চেষ্টা করুন!</div>
             </div>
 
-            <button class="btn-launch" onclick="launchNow()">Launch Now</button>
+            <button class="btn-unlock" onclick="checkPassword()">Unlock System</button>
         </div>
     </div>
 
     <script>
-        const jsonUrl = 'https://raw.githubusercontent.com/guui68/Photo-to-text/main/links.json';
-        let currentUrl = "";
+        // আপনার কাঙ্খিত পাসওয়ার্ড এখানে দিন
+        const CORRECT_PASSWORD = "123"; 
 
-        async function fetchLinks() {
-            try {
-                const res = await fetch(`${jsonUrl}?nocache=${Date.now()}`);
-                const data = await res.json();
-                const list = document.getElementById('optionsList');
-                list.innerHTML = "";
-                
-                data.forEach(item => {
-                    let div = document.createElement('div');
-                    div.className = "option-item";
-                    div.textContent = item.title;
-                    div.onclick = function() {
-                        document.getElementById('selectedText').innerText = item.title;
-                        currentUrl = item.url;
-                        toggleDropdown();
-                    };
-                    list.appendChild(div);
-                });
-            } catch(e) { console.log("Load Error"); }
-        }
+        function checkPassword() {
+            const input = document.getElementById('passInput').value;
+            const error = document.getElementById('errorMsg');
 
-        function toggleDropdown() {
-            const list = document.getElementById('optionsList');
-            if(!list.classList.contains('show')) fetchLinks();
-            list.classList.toggle('show');
-        }
-
-        function launchNow() {
-            if(currentUrl) window.location.href = currentUrl;
-            else alert("দয়া করে একটি টাইটেল সিলেক্ট করুন!");
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.closest('.custom-select')) {
-                document.getElementById('optionsList').classList.remove('show');
+            if (input === CORRECT_PASSWORD) {
+                // পাসওয়ার্ড সঠিক হলে কোথায় যাবে সেটি এখানে দিন
+                window.location.href = "YOUR_DASHBOARD_URL_HERE.html"; 
+                alert("স্বাগতম! এক্সেস মঞ্জুর করা হয়েছে।");
+            } else {
+                error.style.display = "block";
+                document.getElementById('passInput').value = "";
+                // এনিমেশন ইফেক্ট
+                document.querySelector('.card').animate([
+                    { transform: 'translateX(-5px)' },
+                    { transform: 'translateX(5px)' },
+                    { transform: 'translateX(0)' }
+                ], { duration: 200, iterations: 3 });
             }
         }
-        
-        fetchLinks();
+
+        // এন্টার চাপলে যেন কাজ করে
+        document.getElementById('passInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
     </script>
 </body>
 </html>
