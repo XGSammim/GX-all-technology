@@ -1,10 +1,34 @@
 [
   {
+    "title": "Room_rent_receipt",
+    "url": "https://xgsammim.github.io/Rent/"
+  },
+  {
+    "title": "GX_Send_number",
+    "url": "https://xgsammim.github.io/Number-send/"
+  },
+  {
+    "title": "GX_Tiktok_download",
+    "url": "https://xgsammim.github.io/Tiktok-video-download/"
+  },
+  {
     "title": "GX_download_store",
     "url": "https://xgsammim.github.io/GX-download-store/"
   },
   {
-    "title": "GX_ technology",
+    "title": "GX_all_technology",
     "url": "https://xgsammim.github.io/GX-all-technology/"
+  },
+  {
+    "title": "GX_Cod_edit",
+    "url": "https://xgsammim.github.io/Cod-editor/"
+  },
+  {
+    "title": "Photo and file sharing",
+    "url": "https://xgsammim.github.io/Photo-and-file-sharing/"
+  },
+  {
+    "title": "GX technology 1",
+    "url": "https://guui68.github.io/Photo-to-text/"
   }
 ]
