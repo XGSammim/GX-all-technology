@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>GX Technology | Deep Blue Glass Edition</title>
+    <title>GX Technology | Premium Edition</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * { 
@@ -13,170 +13,147 @@
             user-select: none;
         }
 
-        /* হোম পেজের ব্যাকগ্রাউন্ড - হালকা এবং গাঢ় নীলের মিশ্রণ */
+        /* প্রিমিয়াম ডার্ক ব্লু ব্যাকগ্রাউন্ড মিশ্রণ */
         body {
             height: 100vh;
             width: 100vw;
             display: flex;
             justify-content: center;
             align-items: center;
-            /* গভীর এবং হালকা নীলের মিশ্রণ */
-            background: linear-gradient(135deg, #040c1f 0%, #0a1931 50%, #040c1f 100%);
-            background-size: 300% 300%;
-            animation: gradientMove 15s ease infinite;
+            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
             color: #e2e8f0;
             overflow: hidden;
             position: fixed;
         }
 
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* ব্যাকগ্রাউন্ড ওর্বস - আরও গাঢ় ও হালকা মিশ্রণ */
+        /* হালকা নীল গ্লো ইফেক্ট (Animated Orbs) */
         .orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(120px);
+            filter: blur(80px);
             z-index: 0;
-            opacity: 0.3;
+            opacity: 0.2;
+            animation: move 20s infinite alternate;
         }
-        /* হালকা নীল ওর্ব */
-        .orb-1 { width: 500px; height: 500px; background: #0077ff; top: -20%; left: -15%; }
-        /* গাঢ় নীল ওর্ব */
-        .orb-2 { width: 600px; height: 600px; background: #0a1931; bottom: -25%; right: -15%; }
+        .orb-1 { width: 300px; height: 300px; background: #3b82f6; top: 10%; left: 10%; }
+        .orb-2 { width: 400px; height: 400px; background: #1e40af; bottom: 10%; right: 10%; }
 
-        .neon-wrapper {
+        @keyframes move {
+            from { transform: translate(0, 0); }
+            to { transform: translate(50px, 50px); }
+        }
+
+        .container {
             position: relative;
             width: 90%;
-            max-width: 400px;
+            max-width: 380px;
             z-index: 10;
         }
 
-        /* নীল গ্লাস কার্ডের বর্ডার ও শ্যাডো */
-        .card-border {
-            padding: 2px; /* বর্ডার একটু মোটা করা হয়েছে গ্লো বাড়ানোর জন্য */
-            border-radius: 35px;
-            /* উজ্জ্বল নীল বর্ডার গ্রেডিয়েন্ট */
-            background: linear-gradient(135deg, #0077ff, #00d2ff, #0077ff);
-            /* নীল গ্লো শ্যাডো */
-            box-shadow: 0 0 50px rgba(0, 119, 255, 0.5);
-        }
-
-        /* নীল গ্লাস কার্ড (Glassmorphism) */
-        .card {
-            /* হালকা নীল স্বচ্ছ ব্যাকগ্রাউন্ড */
-            background: rgba(10, 25, 49, 0.7);
-            /* গ্লাস ব্লার ইফেক্ট */
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            padding: 55px 35px;
-            border-radius: 33.5px;
+        /* গ্লাস কার্ড ডিজাইন */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1.5px solid rgba(59, 130, 246, 0.5);
+            border-radius: 30px;
+            padding: 40px 25px;
             text-align: center;
-            /* হালকা নীল অভ্যন্তরীণ বর্ডার */
-            border: 1px solid rgba(0, 210, 255, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2);
         }
 
         .brand {
-            font-size: 30px; font-weight: 900; letter-spacing: 4px; margin-bottom: 45px;
-            /* ব্র্যান্ড টেক্সট গ্রেডিয়েন্ট (সাদা ও হালকা নীল) */
-            background: linear-gradient(to bottom, #ffffff, #00d2ff);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            margin-bottom: 35px;
+            background: linear-gradient(135deg, #fff 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-transform: uppercase;
-            /* টেক্সট শ্যাডো গ্লো */
-            text-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
         }
 
-        .custom-select { position: relative; width: 100%; margin-bottom: 35px; text-align: left; }
-        
-        .select-trigger {
-            width: 100%; padding: 18px; 
-            /* ড্রপডাউন ট্রিগার গ্লাস ইফেক্ট */
-            background: rgba(0, 0, 0, 0.3); 
-            border: 1px solid rgba(0, 210, 255, 0.3);
-            border-radius: 20px; 
-            color: #ffffff; /* সিলেক্টেড টেক্সট সাদা */
-            font-size: 16px; cursor: pointer;
-            display: flex; justify-content: space-between; align-items: center;
-            transition: 0.3s;
-        }
-        .select-trigger:hover { 
-            border-color: #00d2ff; 
-            background: rgba(0, 119, 255, 0.2); 
-            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
-        }
-
-        /* ড্রপডাউন অপশন লিস্ট গ্লাস ইফেক্ট */
-        .options-list {
-            position: absolute; 
-            top: 110%; 
-            left: 0; 
+        /* ড্রপডাউন ট্রিগার */
+        .select-box {
+            position: relative;
             width: 100%;
-            /* গাঢ় নীল গ্লাস ব্যাকগ্রাউন্ড */
-            background: rgba(4, 12, 31, 0.95); 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 210, 255, 0.4);
-            border-radius: 22px; 
-            overflow-y: auto; 
-            max-height: 250px; 
-            display: none; 
-            z-index: 999; 
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+            margin-bottom: 30px;
         }
 
-        /* অপশন আইটেম স্টাইল */
-        .option-item {
-            padding: 16px 20px; 
-            /* ডিফল্ট কালার জাভাস্ক্রিপ্ট দিয়ে সেট করা হবে (নীল, হলুদ, সাদা) */
-            cursor: pointer; 
-            border-bottom: 1px solid rgba(0, 210, 255, 0.15);
+        .select-btn {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(2, 6, 23, 0.7);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 15px;
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s ease;
+        }
+
+        .select-btn:hover {
+            border-color: #3b82f6;
+            background: rgba(30, 64, 175, 0.2);
+        }
+
+        /* অপশন লিস্ট */
+        .options-container {
+            position: absolute;
+            top: 110%;
+            left: 0;
+            width: 100%;
+            background: #0f172a;
+            border: 1.5px solid #3b82f6;
+            border-radius: 15px;
+            max-height: 220px;
+            overflow-y: auto;
+            display: none;
+            z-index: 100;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .option {
+            padding: 14px 20px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
             transition: 0.2s;
-            font-weight: 700; /* লেখাগুলো উজ্জ্বল করার জন্য বোল্ড */
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* হালকা গ্লো */
-        }
-        .option-item:last-child { border: none; }
-        .option-item:hover { 
-            background: rgba(0, 119, 255, 0.4); /* নীল হোভার ব্যাকগ্রাউন্ড */
-            color: #ffffff !important; /* হোভার করলে লেখা সাদা হবে */
-            transform: translateX(5px);
+            text-align: left;
         }
 
-        /* বাটন এখন নীল গ্রেডিয়েন্টে */
-        .btn-launch {
-            width: 100%; padding: 20px; border: none; border-radius: 22px;
-            /* উজ্জ্বল নীল গ্রেডিয়েন্ট বাটন */
-            background: linear-gradient(135deg, #00d2ff, #0077ff);
-            color: #fff; font-weight: 800; text-transform: uppercase;
-            letter-spacing: 2px; cursor: pointer; transition: 0.4s;
-            /* বাটন শ্যাডো */
-            box-shadow: 0 10px 30px rgba(0, 119, 255, 0.4);
+        .option:hover {
+            background: rgba(59, 130, 246, 0.3);
+            padding-left: 25px;
         }
-        .btn-launch:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 15px 40px rgba(0, 119, 255, 0.6);
-            background: linear-gradient(135deg, #0077ff, #00d2ff); /* গ্রেডিয়েন্ট ফ্লিপ */
+
+        /* লঞ্চ বাটন */
+        .launch-btn {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            color: #fff;
+            font-weight: 800;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .launch-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(37, 99, 235, 0.5);
         }
 
         .show { display: block !important; }
-
-        /* কাস্টম স্ক্রলবার ড্রপডাউনের জন্য */
-        .options-list::-webkit-scrollbar {
-            width: 8px;
-        }
-        .options-list::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 0 22px 22px 0;
-        }
-        .options-list::-webkit-scrollbar-thumb {
-            background: #0077ff;
-            border-radius: 10px;
-        }
-        .options-list::-webkit-scrollbar-thumb:hover {
-            background: #00d2ff;
-        }
     </style>
 </head>
 <body>
@@ -184,23 +161,21 @@
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
 
-    <div class="neon-wrapper">
-        <div class="card-border">
-            <div class="card">
-                <div class="brand">GX TECHNOLOGY</div>
-                
-                <div class="custom-select">
-                    <div class="select-trigger" onclick="toggleDropdown()">
-                        <span id="selectedText">টাইটেল সিলেক্ট করুন</span>
-                        <span>▼</span>
-                    </div>
-                    <div class="options-list" id="optionsList">
-                        <div class="option-item" style="color: #ffffff;">লোড হচ্ছে...</div>
-                    </div>
+    <div class="container">
+        <div class="glass-card">
+            <div class="brand">GX TECH</div>
+            
+            <div class="select-box">
+                <div class="select-btn" onclick="toggleDropdown()">
+                    <span id="selectedText">টাইটেল সিলেক্ট করুন</span>
+                    <span style="font-size: 12px;">▼</span>
                 </div>
-
-                <button class="btn-launch" onclick="launchNow()">Launch Now</button>
+                <div class="options-container" id="optionsList">
+                    <div class="option" style="color: #fff;">লোড হচ্ছে...</div>
+                </div>
             </div>
+
+            <button class="launch-btn" onclick="launchNow()">Launch Now</button>
         </div>
     </div>
 
@@ -208,38 +183,31 @@
         const jsonUrl = 'https://raw.githubusercontent.com/XGSammim/GX-all-technology/main/links.json';
         let currentUrl = "";
 
-        // ৩টি নির্দিষ্ট কালার: গাঢ় নীল, হলুদ, সাদা
-        const itemColors = ['#0077ff', '#ffff00', '#ffffff'];
-
         async function fetchLinks() {
             try {
                 const res = await fetch(`${jsonUrl}?nocache=${Date.now()}`);
-                if (!res.ok) throw new Error('Network response was not ok');
                 const data = await res.json();
                 const list = document.getElementById('optionsList');
                 list.innerHTML = "";
                 
                 data.forEach((item, index) => {
                     let div = document.createElement('div');
-                    div.className = "option-item";
+                    div.className = "option";
                     div.textContent = item.title;
                     
-                    // কালার অ্যাসাইন করা (পর্যায়ক্রমে ৩টি কালার)
-                    // index % 3 ব্যবহার করে 0, 1, 2 ইনডেক্স পাওয়া যায়
-                    div.style.color = itemColors[index % 3];
+                    // হলুদ এবং সাদা কালারের মিশ্রণ
+                    // জোড় সংখ্যা (0, 2, 4) হলে হলুদ, বিজোড় (1, 3, 5) হলে সাদা
+                    div.style.color = (index % 2 === 0) ? "#FFD700" : "#FFFFFF";
                     
                     div.onclick = function() {
                         document.getElementById('selectedText').innerText = item.title;
                         currentUrl = item.url;
-                        // সিলেক্ট করার পর ট্রিগারের টেক্সট কালার সাদা থাকবে
-                        document.getElementById('selectedText').style.color = "#ffffff";
                         toggleDropdown();
                     };
                     list.appendChild(div);
                 });
             } catch(e) { 
-                console.error('Fetch error:', e);
-                document.getElementById('optionsList').innerHTML = '<div class="option-item" style="color: #ff4444;">ডাটা লোড করতে ব্যর্থ</div>';
+                document.getElementById('optionsList').innerHTML = '<div class="option" style="color: #ff4444;">ডাটা পাওয়া যায়নি</div>';
             }
         }
 
@@ -251,20 +219,15 @@
 
         function launchNow() {
             if(currentUrl) window.location.href = currentUrl;
-            else alert("দয়া করে একটি টাইটেল সিলেক্ট করুন!");
+            else alert("দয়া করে একটি অপশন বেছে নিন!");
         }
 
-        // ড্রপডাউনের বাইরে ক্লিক করলে বন্ধ করার জন্য
         window.onclick = function(event) {
-            if (!event.target.closest('.custom-select')) {
-                const list = document.getElementById('optionsList');
-                if (list && list.classList.contains('show')) {
-                    list.classList.remove('show');
-                }
+            if (!event.target.closest('.select-box')) {
+                document.getElementById('optionsList').classList.remove('show');
             }
         }
         
-        // পেজ লোড হলে প্রথমবার ডেটা ফেচ করা
         fetchLinks();
     </script>
 </body>
